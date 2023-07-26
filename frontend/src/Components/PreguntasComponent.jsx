@@ -25,10 +25,10 @@ export default function PreguntasComponent({ id, enunciado, code, resp }) {
   const compararRespuestas = (e) => {
     e.preventDefault();
     if (input.answer == resp) {
-      setPuntaje(add_to_puntaje(7));
+      setPuntaje(add_to_puntaje(1));
       setTrueAnswer(1);
     } else {
-      setPuntaje(add_to_puntaje(1));
+      setPuntaje(add_to_puntaje(0));
       setTrueAnswer(0);
     }
 
@@ -43,7 +43,7 @@ export default function PreguntasComponent({ id, enunciado, code, resp }) {
       <HomeStyle>
         <h3 className="text-enunciado">
           <b>
-            Pregunta {id}: {enunciado}
+            {enunciado}
           </b>
         </h3>
         <div className="code-box">
@@ -71,9 +71,9 @@ export default function PreguntasComponent({ id, enunciado, code, resp }) {
             </Form.Group>
           </Form>
           {trueAnswer == 1 ? (
-            <h3>¡Respuesta Correcta. Obtienes 7 puntos!</h3>
+            <h3>¡Respuesta Correcta! Obtienes 1 punto.</h3>
           ) : trueAnswer == 0 ? (
-            <h3>Respuesta Incorrecta. Obtienes 1 punto.</h3>
+            <h3>Respuesta Incorrecta. No obtienes puntos.</h3>
           ) : (
             <button varian="primary" onClick={compararRespuestas}>
               Verificar Respuesta
@@ -88,7 +88,7 @@ export default function PreguntasComponent({ id, enunciado, code, resp }) {
 
 const GlobalStyle = createGlobalStyle`
 body { 
-    background-color: #154360;
+    background-color: #255b94;
 }
 `;
 

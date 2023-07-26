@@ -10,7 +10,7 @@ function NavbarComponent() {
         <nav className="sticky"></nav>
         <header class="header">
           <div class="logo">
-            <h1>~CodeChallenger~</h1>
+            <h1>PyQuiz</h1>
           </div>
           <nav></nav>
           <div class="clock">

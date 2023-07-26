@@ -13,8 +13,28 @@ class PruebaFacilComponent extends Component {
 
   componentDidMount() {
     fetch("http://localhost:8080/facil")
-      .then((response) => response.json())
-      .then((data) => this.setState({ datas: data }));
+        .then((response) => response.json())
+        .then((data) => this.selectRandomData(data))
+        .catch((error) => console.error("Error fetching data:", error));
+  }
+
+  shuffleArray(array) {
+    for (let i = array.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [array[i], array[j]] = [array[j], array[i]];
+    }
+    return array;
+  }
+
+  selectRandomData(data) {
+    if (!Array.isArray(data)) {
+      console.error("Data is not an array.");
+      return;
+    }
+
+    const shuffledData = this.shuffleArray(data);
+    const selectedData = shuffledData.slice(0, 6);
+    this.setState({ datas: selectedData });
   }
 
   render() {

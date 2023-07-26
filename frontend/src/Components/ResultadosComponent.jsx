@@ -3,11 +3,19 @@ import styled from "styled-components";
 import { createGlobalStyle } from "styled-components";
 
 export default function ResultadosComponent() {
-  const ComenzarFacil = () => {
-    localStorage.setItem("puntaje", 0);
-    localStorage.setItem("restantes", 4);
-    console.log()
-    window.location.href = "/prueba-facil";
+  const Comenzar = () => {
+    const dificultadSeleccionada = document.getElementById("dificultad").value;
+
+    localStorage.setItem("puntaje", 1);
+    localStorage.setItem("restantes", 6);
+
+    if (dificultadSeleccionada === "facil") {
+      window.location.href = "/prueba-facil";
+    } else if (dificultadSeleccionada === "intermedio") {
+      window.location.href = "/prueba-intermedio";
+    } else if (dificultadSeleccionada === "dificil") {
+      window.location.href = "/prueba-dificil";
+    }
   };
 
   const [puntaje, setPuntaje] = useState(
@@ -50,62 +58,36 @@ export default function ResultadosComponent() {
           )}
         </div>
         <br></br>
-        <div className="texto-resultados">
-          <h1>
-            <b>
-              ¿Buscas otros desafios? Intentalo denuevo, aumenta la dificultad o
-              crea tu propio desafio.
-            </b>
-          </h1>
-        </div>
         <div className="facil">
           <h2>
-            <b>Modo Básico 🙂</b>
+            <b>Seleccione un Modo</b>
           </h2>
           <h3>
-            Para principiantes en Python que quieren sumergirse en el mundo de
-            la programación y aprender con desafios básicos y rápidos.
+            Para principiantes en Python que quieren sumergirse en el mundo de la
+            programación y aprender con desafíos básicos y rápidos.
           </h3>
-          <button type="button" class="btn btn-primary" onClick={ComenzarFacil}>
-            Comenzar
-          </button>
-        </div>
-        <br></br>
-        <div className="medio">
-          <h2>
-            <b>Modo Intermedio 🤔</b>
-          </h2>
-          <h3>
-            Para aquellos que ya tienen conocimientos en Python y quieren poner
-            a prueba sus habilidades con desafios de dificultad media.
-          </h3>
-          <button type="button" class="btn btn-primary">
-            Comenzar
-          </button>
-        </div>
-        <br></br>
-        <div className="dificil">
-          <h2>
-            <b>Modo Avanzado 😈</b>
-          </h2>
-          <h3>
-            Para aquellos expertos en Python que buscan los mayores desafios.
-          </h3>
-          <button type="button" class="btn btn-primary">
+          <select id="dificultad" className="form-select">
+            <option value="facil">Fácil</option>
+            <option value="intermedio">Intermedio</option>
+            <option value="dificil">Difícil</option>
+          </select>
+          <br/>
+          <button type="button" className="btn btn-primary" onClick={Comenzar}>
             Comenzar
           </button>
         </div>
 
+
         <br></br>
         <div className="nueva-pregunta">
           <h2>
-            <b>Agregar un nuevo desafio 🐍 </b>
+            <b>Agregar un nuevo desafio</b>
           </h2>
           <h3>
             ¿Has creado un desafio y quieres ver como otros se enfrentan a el?
             Accede a esta opción para agregar a un nuevo desafio.
           </h3>
-          <button type="button" class="btn btn-primary">
+          <button type="button" className="btn btn-primary">
             Acceder
           </button>
         </div>
@@ -117,7 +99,7 @@ export default function ResultadosComponent() {
 
 const GlobalStyle = createGlobalStyle`
 body {
-    background-color: #9E0F20;
+    background-color: #255b94;
 }
 `;
 
