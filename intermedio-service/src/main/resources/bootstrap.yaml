@@ -1,0 +1,21 @@
+spring:
+  devtools:
+    restart:
+      aditional-paths: src/main/java
+  application:
+    name: intermedio
+  cloud:
+    config:
+      enabled: true
+      uri: http://localhost:8082
+  jpa:
+    show-sql: true
+    hibernate:
+      dialect: MySQL8Dialect
+      ddl-auto: create
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    dbname: facil_db
+    url: jdbc:mysql://localhost:3306/intermedio_db?autorReconnect=true&allowPublicKeyRetrieval=true&useSSL=false
+    username: root
+    password: 1234

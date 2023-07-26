@@ -11,8 +11,8 @@ export default function HomeComponent() {
     localStorage.setItem("puntaje", 0);
     localStorage.setItem("restantes", 6);
 
-    if (dificultadSeleccionada === "facil") {
-      window.location.href = "/prueba-facil";
+    if (dificultadSeleccionada === "intermedioservice") {
+      window.location.href = "/prueba-intermedioservice";
     } else if (dificultadSeleccionada === "intermedio") {
       window.location.href = "/prueba-intermedio";
     } else if (dificultadSeleccionada === "dificil") {
@@ -43,7 +43,7 @@ export default function HomeComponent() {
         </h3>
         <br></br>
 
-        <div className="facil">
+        <div className="mode">
           <h2>
             <b>Seleccione un Modo</b>
           </h2>
@@ -98,7 +98,7 @@ const HomeStyle = styled.nav`
     color: #fff;
 }
 
-.facil{
+.mode{
     justify-content: center;
     display: flex;
     flex-direction: column;

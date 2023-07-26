@@ -8,9 +8,10 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="eureka-service" />
-        <module name="facil" />
         <module name="config-service" />
+        <module name="intermedio-service" />
         <module name="gateway-service" />
+        <module name="facil-service" />
       </profile>
     </annotationProcessing>
   </component>
@@ -18,8 +19,9 @@
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="config-service" options="-parameters" />
       <module name="eureka-service" options="-parameters" />
-      <module name="facil" options="-parameters" />
+      <module name="facil-service" options="-parameters" />
       <module name="gateway-service" options="-parameters" />
+      <module name="intermedio-service" options="-parameters" />
     </option>
   </component>
 </project>
