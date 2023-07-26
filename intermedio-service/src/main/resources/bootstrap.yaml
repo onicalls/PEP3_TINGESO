@@ -3,11 +3,11 @@ spring:
     restart:
       aditional-paths: src/main/java
   application:
-    name: intermedio
+    name: intermedio-service
   cloud:
     config:
       enabled: true
-      uri: http://localhost:8082
+      uri: http://localhost:8083
   jpa:
     show-sql: true
     hibernate:
@@ -15,7 +15,7 @@ spring:
       ddl-auto: create
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    dbname: facil_db
+    dbname: intermedio_db
     url: jdbc:mysql://localhost:3306/intermedio_db?autorReconnect=true&allowPublicKeyRetrieval=true&useSSL=false
     username: root
     password: 1234
