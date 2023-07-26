@@ -10,9 +10,9 @@ import java.util.ArrayList;
 @Service
 public class IntermedioService {
     @Autowired
-    private IntermedioRepository facilRepository;
+    private IntermedioRepository intermedioRepository;
 
     public ArrayList<IntermedioEntity> obtenerData(){
-        return (ArrayList<IntermedioEntity>) facilRepository.findAll();
+        return (ArrayList<IntermedioEntity>) intermedioRepository.findAll();
     }
 }

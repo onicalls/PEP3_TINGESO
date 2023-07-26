@@ -1,0 +1,15 @@
+insert into prueba_dificil(id, enunciado, codigo, respuesta) values (1, "¿Qué imprime el código?", "list4 = [i**2 for i in range(5)]\nprint(sum(list4))", "30");
+insert into prueba_dificil(id, enunciado, codigo, respuesta) values (2, "¿Qué valor tiene el último elemento?", "list5 = [i*2 for i in range(5)]\nprint(list5[-1])", "8");
+insert into prueba_dificil(id, enunciado, codigo, respuesta) values (3, "¿Qué se muestra?", "dict1 = {'a': 1, 'b': 2, 'c': 3}\nprint(len(dict1))", "3");
+insert into prueba_dificil(id, enunciado, codigo, respuesta) values (4, "¿Qué imprime el código?", "set1 = {1, 2, 3, 3, 4, 4, 5}\nprint(len(set1))", "5");
+insert into prueba_dificil(id, enunciado, codigo, respuesta) values (5, "¿Qué valor se muestra?", "tuple1 = (1,2,3,4,5)\nprint(tuple1[2])", "3");
+insert into prueba_dificil(id, enunciado, codigo, respuesta) values (6, "¿Qué se imprime?", "l = [i for i in range(10) if i%2 == 0]\nprint(l)", "[0, 2, 4, 6, 8]");
+insert into prueba_dificil(id, enunciado, codigo, respuesta) values (7, "¿Qué imprime el código?", "m = [i*3 for i in range(5)]\nprint(m[2])", "6");
+insert into prueba_dificil(id, enunciado, codigo, respuesta) values (8, "¿Qué se muestra?", "n = {i: i**2 for i in range(3)}\nprint(n)", "{0: 0, 1: 1, 2: 4}");
+insert into prueba_dificil(id, enunciado, codigo, respuesta) values (9, "¿Qué se imprime?", "o = {i for i in range(5) if i%2 == 0}\nprint(o)", "{0, 2, 4}");
+insert into prueba_dificil(id, enunciado, codigo, respuesta) values (10, "¿Qué imprime el código?", "p = 'Python'[::2]\nprint(p)", "Pto");
+insert into prueba_dificil(id, enunciado, codigo, respuesta) values (11, "¿Qué se imprime?", "q = lambda x: x*2\nprint(q(3))", "6");
+insert into prueba_dificil(id, enunciado, codigo, respuesta) values (12, "¿Cuál es el resultado?", "r = list(map(lambda x: x*3, [1,2,3]))\nprint(r)", "[3, 6, 9]");
+insert into prueba_dificil(id, enunciado, codigo, respuesta) values (13, "¿Qué se muestra?", "s = list(filter(lambda x: x%2 == 0, [1,2,3,4,5]))\nprint(s)", "[2, 4]");
+insert into prueba_dificil(id, enunciado, codigo, respuesta) values (14, "¿Qué se imprime?", "t = [1,2,3,4]\nu = [4,5,6,7]\nprint(set(t) & set(u))", "{4}");
+insert into prueba_dificil(id, enunciado, codigo, respuesta) values (15, "¿Qué imprime el código?", "v = 'Python'.replace('o', 'a')\nprint(v)", "Pythan");

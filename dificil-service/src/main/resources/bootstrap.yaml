@@ -3,7 +3,7 @@ spring:
     restart:
       aditional-paths: src/main/java
   application:
-    name: intermedio-service
+    name: dificil-service
   cloud:
     config:
       enabled: true
@@ -15,7 +15,7 @@ spring:
       ddl-auto: create
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    dbname: intermedio_db
-    url: jdbc:mysql://localhost:3306/intermedio_db?autorReconnect=true&allowPublicKeyRetrieval=true&useSSL=false
+    dbname: dificil
+    url: jdbc:mysql://localhost:3306/dificil_db?autorReconnect=true&allowPublicKeyRetrieval=true&useSSL=false
     username: root
     password: 1234

@@ -11,8 +11,8 @@ export default function HomeComponent() {
     localStorage.setItem("puntaje", 0);
     localStorage.setItem("restantes", 6);
 
-    if (dificultadSeleccionada === "intermedioservice") {
-      window.location.href = "/prueba-intermedioservice";
+    if (dificultadSeleccionada === "facil") {
+      window.location.href = "/prueba-facil";
     } else if (dificultadSeleccionada === "intermedio") {
       window.location.href = "/prueba-intermedio";
     } else if (dificultadSeleccionada === "dificil") {

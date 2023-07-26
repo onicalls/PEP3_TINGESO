@@ -8,6 +8,7 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="eureka-service" />
+        <module name="dificil-service" />
         <module name="config-service" />
         <module name="intermedio-service" />
         <module name="gateway-service" />
@@ -18,6 +19,7 @@
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="config-service" options="-parameters" />
+      <module name="dificil-service" options="-parameters" />
       <module name="eureka-service" options="-parameters" />
       <module name="facil-service" options="-parameters" />
       <module name="gateway-service" options="-parameters" />
