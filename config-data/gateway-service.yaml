@@ -24,7 +24,11 @@ spring:
             allowed-headers: "*"
             allow-credentials: true
       routes:
-        - id: intermedioservice
-          uri: lb://intermedioservice
+        - id: facil-service
+          uri: lb://facil-service
           predicates:
-            - Path=/intermedioservice/**
+            - Path=/facil-service/**
+        - id: intermedio-service
+          uri: lb://intermedio-service
+          predicates:
+            - Path=/intermedio-service/**
