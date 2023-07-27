@@ -1,23 +1,53 @@
-import React, { Component } from "react";
+import React, { Component, useState, useCallback } from "react";
+import AceEditor from "react-ace";
+import axios from 'axios';
+
+import "ace-builds/src-noconflict/mode-python";
+import "ace-builds/src-noconflict/theme-monokai";
+
 import styled from "styled-components";
 import { createGlobalStyle } from 'styled-components'
 
 
-export default function HomeComponent() {
-
+export default function NuevaPreguntaComponent() {
+  const [code, setCode] = useState("");
   const Comenzar = () => {
     const dificultadSeleccionada = document.getElementById("dificultad").value;
 
     localStorage.setItem("puntaje", 0);
     localStorage.setItem("restantes", 6);
+  }
+  const [respuesta, setRespuesta] = useState("");
+  const [enunciado, setEnunciado] = useState("");
 
-    if (dificultadSeleccionada === "intermedioservice") {
-      window.location.href = "/prueba-intermedioservice";
-    } else if (dificultadSeleccionada === "intermedio") {
-      window.location.href = "/prueba-intermedio";
-    } else if (dificultadSeleccionada === "dificil") {
-      window.location.href = "/prueba-dificil";
+  const AgregarPregunta = (enunciado, pregunta, respuesta, dificultad) => {
+    const urlBase = "http://localhost:8080";
+
+    let endpoint = "";
+
+    if (dificultad === "Fácil") {
+      endpoint = "/facil";
+    } else if (dificultad === "Intermedio") {
+      endpoint = "/intermedio";
+    } else if (dificultad === "Difícil") {
+      endpoint = "/dificil";
     }
+
+    return axios.post(`${urlBase}${endpoint}`, {
+      enunciado: enunciado,
+      codigo: pregunta,
+      respuesta: respuesta });
+  };
+
+  const manejarAgregar = () => {
+    const dificultadSeleccionada = document.getElementById("dificultad").value;
+    AgregarPregunta(enunciado, code, respuesta, dificultadSeleccionada)
+        .then(response => {
+          console.log("Pregunta agregada con éxito:", response.data);
+        })
+        .catch(error => {
+          console.error("Error al agregar la pregunta:", error);
+        });
   };
 
 
@@ -37,10 +67,48 @@ export default function HomeComponent() {
         <h3 className="text-center">
           {" "}
           <b>
-            Selecciona tu nivel de dificultad y comienza a resolver los
+            Selecciona tu nivel de dificultad y comienza los
             desafíos.{" "}
           </b>
         </h3>
+        <br></br>
+        <div className="nueva-pregunta">
+          <h2>
+            <b>Escribe el enunciado del problema</b>
+          </h2>
+          <div>
+            <label htmlFor="enunciado-input" className="label-grande"></label>
+            <input type="text" id="enunciado-input" value={enunciado} onChange={e => setEnunciado(e.target.value)} />
+          </div>
+        </div>
+        <br></br>
+
+        <div className="nueva-pregunta">
+          <h2>
+            <b>Escribe el problema</b>
+          </h2>
+          <div>
+            <AceEditor
+                mode="python"
+                theme="monokai"
+                value={code}
+                onChange={(newCode) => setCode(newCode)}
+                name="nueva-pregunta-input"
+                editorProps={{ $blockScrolling: true }}
+            />
+          </div>
+        </div>
+        <br></br>
+
+        <div className="nueva-pregunta">
+          <h2>
+            <b>Escribe la respuesta del problema</b>
+          </h2>
+          <div>
+            <label htmlFor="nueva-respuesta-input" className="label-grande"></label>
+            <input type="text" id="nueva-respuesta-input" value={respuesta} onChange={e => setRespuesta(e.target.value)} />
+          </div>
+        </div>
         <br></br>
 
         <div className="facil">
@@ -48,8 +116,7 @@ export default function HomeComponent() {
             <b>Seleccione un Modo</b>
           </h2>
           <h3>
-            Para principiantes en Python que quieren sumergirse en el mundo de la
-            programación y aprender con desafíos básicos y rápidos.
+            Seleccion el nivel de dificultad que tiene la nueva pregunta.
           </h3>
           <select id="dificultad" className="form-select">
             <option value="facil">Fácil</option>
@@ -57,11 +124,7 @@ export default function HomeComponent() {
             <option value="dificil">Difícil</option>
           </select>
           <br/>
-          <button type="button" className="btn btn-primary" onClick={Comenzar}>
-            Comenzar
-          </button>
         </div>
-
 
         <br></br>
         <div className="nueva-pregunta">
@@ -69,11 +132,10 @@ export default function HomeComponent() {
             <b>Agregar un nuevo desafio</b>
           </h2>
           <h3>
-            ¿Has creado un desafio y quieres ver como otros se enfrentan a el?
-            Accede a esta opción para agregar a un nuevo desafio.
+            ¡Haz click en agregar para que otros usuarios resuelvan tu pregunta!
           </h3>
-          <button type="button" class="btn btn-primary">
-            Acceder
+          <button type="button" className="btn btn-primary" onClick={manejarAgregar}>
+            Agregar
           </button>
         </div>
         <br></br>
@@ -90,14 +152,14 @@ const GlobalStyle = createGlobalStyle`
 
 const HomeStyle = styled.nav`
 .text-center {
-    justify-content: center;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 20px;
-    color: #fff;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  color: #fff;
 }
-
+  
 .facil{
     justify-content: center;
     display: flex;

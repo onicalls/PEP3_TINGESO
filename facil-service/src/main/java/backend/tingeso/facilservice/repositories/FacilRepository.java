@@ -1,6 +1,6 @@
-package backend.tingeso.intermedioservice.repositories;
+package backend.tingeso.facilservice.repositories;
 
-import backend.tingeso.intermedioservice.entities.FacilEntity;
+import backend.tingeso.facilservice.entities.FacilEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

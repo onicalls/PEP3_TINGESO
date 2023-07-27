@@ -18,7 +18,12 @@ export default function HomeComponent() {
     } else if (dificultadSeleccionada === "dificil") {
       window.location.href = "/prueba-dificil";
     }
-  };
+  }
+
+  const Acceder = () => {
+    window.location.href = "/nueva-pregunta";
+  }
+  ;
 
 
   return (
@@ -56,7 +61,6 @@ export default function HomeComponent() {
             <option value="intermedio">Intermedio</option>
             <option value="dificil">Difícil</option>
           </select>
-          <br/>
           <button type="button" className="btn btn-primary" onClick={Comenzar}>
             Comenzar
           </button>
@@ -72,7 +76,7 @@ export default function HomeComponent() {
             ¿Has creado un desafio y quieres ver como otros se enfrentan a el?
             Accede a esta opción para agregar a un nuevo desafio.
           </h3>
-          <button type="button" class="btn btn-primary">
+          <button type="button" className="btn btn-primary" onClick={Acceder}>
             Acceder
           </button>
         </div>

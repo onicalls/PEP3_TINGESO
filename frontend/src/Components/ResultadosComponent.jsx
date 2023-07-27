@@ -9,8 +9,8 @@ export default function ResultadosComponent() {
     localStorage.setItem("puntaje", 1);
     localStorage.setItem("restantes", 6);
 
-    if (dificultadSeleccionada === "intermedioservice") {
-      window.location.href = "/prueba-intermedioservice";
+    if (dificultadSeleccionada === "facilservice") {
+      window.location.href = "/prueba-facilservice";
     } else if (dificultadSeleccionada === "intermedio") {
       window.location.href = "/prueba-intermedio";
     } else if (dificultadSeleccionada === "dificil") {
